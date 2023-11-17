@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.my-container{
+    @apply max-w-screen-xl mx-auto
+}
+.container-grid {
+	@apply grid gap-8  mb-8 md:grid-cols-2 lg:grid-cols-3 mx-auto;
+}
+.primary-btn {
+    @apply bg-slate-700 text-white hover:text-black border-none;
+  }
+  .text-li {
+	@apply font-semibold text-lg text-gray-950 hover:text-gray-950 active:text-primary;
+}
+
+.text-li-dark {
+	@apply font-semibold text-lg  text-base-200 hover:text-gray-400 active:text-orange-200;
+}
+
+
+
+.active{
+  @apply  tracking-wide text-green-950 underline transition-colors duration-200 font-bold
+}
+
+.default{
+  @apply font-medium tracking-wide text-pink-500 transition-colors duration-200 hover:text-info
+}
