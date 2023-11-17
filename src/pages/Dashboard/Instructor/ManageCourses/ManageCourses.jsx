@@ -5,6 +5,7 @@ import { AuthContext } from "../../../../Provider/AuthProvider";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useGetUser from "../../../../hooks/useGetUser";
 import Title from "../../../../components/Title/Title";
+import toast from "react-hot-toast";
 
 const ManageCourses = () => {
 
@@ -34,14 +35,14 @@ const ManageCourses = () => {
   };
 
 
-  const handledelete = (_id, status) => {
+  const handledelete = (_id) => {
   
     axiosSecure
-      .patch(`/deleteCourse/${_id}`)
+      .delete(`/deleteCourse/${_id}`)
       .then((response) => {
         console.log(response);
         if (response?.data?.modifiedCount > 0) {
-       
+       toast.success("Deleted Successfully!")
         }
       })
       .catch((error) => {

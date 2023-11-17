@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { toast } from "react-hot-toast";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 
 
@@ -15,7 +16,10 @@ const ManageCoursesCard = ({ singleCourse, handleUpdateStatus, handledelete }) =
       <figure className="w-4/12">
         <img className="h-full" src={image} alt="photo" />
       </figure>
-      <div className="p-10 bg-accent bg-opacity-80 text-base-100 w-8/12">
+      <div className="p-10 bg-accent bg-opacity-80 text-base-100 w-8/12 relative space-y-3">
+      <div className="absolute right-5 top-5">
+        <button onClick={()=>handledelete(_id)}><RiDeleteBinLine size={28} className="hover:text-red-400"/></button>
+      </div>
         <h2 className="card-title capitalize">{course_name}</h2>
         <p className="capitalize">Conducted by : {instructor?.name}</p>
         <p>Contact : {instructor?.email}</p>
@@ -54,6 +58,7 @@ const ManageCoursesCard = ({ singleCourse, handleUpdateStatus, handledelete }) =
           </button>
         </div>
       </div>
+      
     </div>
   );
 };

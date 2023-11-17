@@ -16,22 +16,22 @@ const validationSchema = yup.object().shape({
       "length",
       "Password must be at least 6 characters long",
       (value) => value.length >= 6
-    ),
-  //     .test(
-  //       "uppercase",
-  //       "Password must contain at least one uppercase letter",
-  //       (value) => /[A-Z]/.test(value)
-  //     )
-  //     .test(
-  //       "specialChar",
-  //       "Password must contain at least one special character",
-  //       (value) => /[!@#$%^&*]/.test(value)
-  //     )
-  //     .required("Password is required"),
-  //   confirmPassword: yup
-  //     .string()
-  //     .oneOf([yup.ref("password"), null], "Passwords must need to match")
-  //     .required("Confirm Password is required"),
+    )
+    .test(
+        "uppercase",
+        "Password must contain at least one uppercase letter",
+        (value) => /[A-Z]/.test(value)
+      )
+      .test(
+        "specialChar",
+        "Password must contain at least one special character",
+        (value) => /[!@#$%^&*]/.test(value)
+      )
+      .required("Password is required"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "Passwords must need to match")
+      .required("Confirm Password is required"),
 });
 
 const SignUp = () => {
